@@ -1,0 +1,41 @@
+<div class="mainArea">
+  <div class="container">
+    <div class="columns is-centered">
+      <div class="box column is-one-third">
+        <h1 class="title has-text-centered">Create A Password</h1>
+
+        <div class="field">
+          <label>Length of Password: </label>
+
+         <input type="text" (change)="modifyLength($any($event.target).value)" />
+        </div>
+        <div class="field">
+          <div class="control">
+           <label class="checkbox">Use Alphabet
+               <input (change)="modifyLetters()" type="checkbox"/></label>
+            </div>
+        </div>
+        <div class="field">
+          <div class="control">
+            <label class="checkbox">Use Numbers
+              <input (change)="modifyNumbers()" type="checkbox"/></label>
+           </div>
+        </div>
+        <div class="field">
+          <div class="control">
+            <label class="checkbox">Use Symbols
+              <input (change)="modifySymbols()" type="checkbox"/></label>
+           </div>
+        </div>
+
+  <button class="btn btn-primary" [disabled]="!(length && (includeLetters || includeNumbers || includeSymbols))"
+   (click)="buttonclick()">CREATE</button>
+       <div class="box" *ngIf="password">
+        <label>Your Password: </label>
+        <input class="input" [value]="password"/>
+      </div>
+    </div>
+  <div>
+</div>
+
+
